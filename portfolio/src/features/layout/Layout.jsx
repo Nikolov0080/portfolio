@@ -1,24 +1,17 @@
 import React from "react";
-import image from "../../app/images/bg.jpg";
-import { makeStyles } from "@material-ui/core";
+import { Container, makeStyles } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+import { setLoading } from "./loadingSlice";
 
 const useStyles = makeStyles((theme) => ({
-  background: {
-    backgroundImage: `url(${image})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    minHeight: "100%",
-    minWidth: "100%",
-    position: "fixed",
-    top: 0,
-    left: 0,
-  },
+  mainContainer: {},
 }));
 
 const Layout = ({ children }) => {
+  const dispatch = useDispatch();
+  dispatch(setLoading(false));
   const classes = useStyles();
-
-  return <div className={classes.background}>{children}</div>;
+  return <Container className={classes.mainContainer}>{children}</Container>;
 };
 
 export default Layout;
