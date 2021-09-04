@@ -6,16 +6,18 @@ import { ROUTES } from "./constants";
 
 const HomePage = lazy(() => import("../features/home/Home"))
 const AboutPage = lazy(() => import("../features/about/About"))
+const ContactsPage = lazy(() => import("../features/contacts/Contacts"))
 
 const Router = () => {
     return (
         <Layout>
-            <Suspense fallback={<Loading />}>
-                <Switch>
+            <Switch>
+                <Suspense fallback={<Loading />}>
                     <Route exact path={ROUTES.HOME} component={HomePage} />
                     <Route exact path={ROUTES.ABOUT} component={AboutPage} />
-                </Switch>
-            </Suspense>
+                    <Route exact path={ROUTES.CONTACTS} component={ContactsPage} />
+                </Suspense>
+            </Switch>
         </Layout>
     )
 }

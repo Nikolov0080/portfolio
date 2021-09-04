@@ -1,17 +1,21 @@
 import React from "react";
 import { Container, makeStyles } from "@material-ui/core";
-import { useDispatch } from "react-redux";
-import { setLoading } from "./loadingSlice";
+import Navigation from "../../components/layout/Navigation";
 
 const useStyles = makeStyles((theme) => ({
-  mainContainer: {},
+  mainContainer: {
+    marginTop: theme.spacing(4),
+  },
 }));
 
 const Layout = ({ children }) => {
-  const dispatch = useDispatch();
-  dispatch(setLoading(false));
   const classes = useStyles();
-  return <Container className={classes.mainContainer}>{children}</Container>;
+  return (
+    <div>
+      <Navigation />
+      <Container className={classes.mainContainer}>{children}</Container>
+    </div>
+  );
 };
 
 export default Layout;

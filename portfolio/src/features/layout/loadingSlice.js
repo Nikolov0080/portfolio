@@ -5,7 +5,7 @@ export const LOADING = "loading";
 const initialState = {
     loading: true
 }
-
+// will be needed for data fetching
 const loadingSlice = createSlice({
     name: LOADING,
     initialState,
@@ -17,5 +17,7 @@ const loadingSlice = createSlice({
 });
 
 export const loading = (state) => state[LOADING].loading;
+
 export const { setLoading } = loadingSlice.actions;
+
 export default loadingSlice.reducer;
