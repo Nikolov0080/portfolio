@@ -29,7 +29,7 @@ const NavBar = (props) => {
     <>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar color="default">
+        <AppBar color="inherit">
           <Toolbar>
             <Grid container alignItems="center" justifyContent="space-between">
               <Grid item xs={12} md={4}>
