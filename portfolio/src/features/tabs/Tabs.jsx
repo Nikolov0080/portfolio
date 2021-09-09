@@ -19,6 +19,7 @@ const PageTabs = () => {
   useEffect(() => {
     setValue(currentTab.path);
     history.push(currentTab.path);
+    // eslint-disable-next-line
   }, [currentTab]);
 
   return (

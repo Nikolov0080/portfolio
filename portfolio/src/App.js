@@ -4,26 +4,35 @@ import { Provider } from 'react-redux';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import Router from './app/routes';
 import { BrowserRouter as PageRouter } from 'react-router-dom';
-import { blue, common } from '@material-ui/core/colors';
+import { blue } from '@material-ui/core/colors';
 
 const customTheme = createTheme({
   palette: {
+    primary: {
+      main: "#3366FF"
+    },
     secondary: {
       main: "#000000"
     }
   },
-
   overrides: {
     MuiChip: {
       root: {
         margin: 10,
-        fontSize: 17
+        fontSize: 17,
+        padding: 10,
+        "@media (max-width:780px)": {
+          margin: 5,
+        }
+      },
+      outlined: {
+        border: "none",
+        boxShadow: "1px 2px 4px 2px #B2B2B2"
       }
     },
     MuiDivider: {
       root: {
         backgroundColor: "#000000",
-        margin: 5
       }
     },
     MuiAppBar: {
@@ -55,8 +64,8 @@ const customTheme = createTheme({
   },
   typography: {
     fontFamily: [
-      'Chilanka',
-      'cursive',
+      'Josefin Sans',
+      'sans-serif',
     ].join(','),
   }
 

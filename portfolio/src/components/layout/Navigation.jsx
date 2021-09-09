@@ -29,9 +29,9 @@ const NavBar = (props) => {
     <>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar color="inherit">
+        <AppBar style={{ opacity: 0.9 }} color="inherit">
           <Toolbar>
-            <Grid container alignItems="center" justifyContent="space-between">
+            <Grid container alignItems="center" justifyContent="space-around">
               <Grid item xs={12} md={4}>
                 <Typography align="center">Zhivko Nikolov</Typography>
               </Grid>
