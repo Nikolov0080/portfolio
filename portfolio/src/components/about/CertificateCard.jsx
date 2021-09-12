@@ -37,7 +37,7 @@ const CertificateCard = ({ title, imageURL, link }) => {
 
   return (
     <Tooltip placement="top" title="Click to see full info">
-      <a className={classes.link} target="_blank" href={link}>
+      <a className={classes.link} target="_blank" rel="noreferrer" href={link}>
         <Card className={classes.root}>
           <CardHeader disableTypography="subheader" title={title} />
           <CardMedia
