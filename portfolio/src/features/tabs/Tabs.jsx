@@ -32,8 +32,7 @@ const PageTabs = () => {
         textColor="secondary"
         aria-label="icon label tabs example"
       >
-        <Tab label="HOME" value="/" />
-        <Tab label="ABOUT" value="/about" />
+        <Tab label="ABOUT" value="/" />
         <Tab label="CONTACTS" value="/contacts" />
       </Tabs>
     </div>

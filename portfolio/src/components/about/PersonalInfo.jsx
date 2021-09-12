@@ -2,8 +2,8 @@ import { Avatar, Typography } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import { Grid } from "@material-ui/core";
-import { ReactComponent as ReactLogo } from "../../app/images/svg/react.svg";
-import Me from "../../app/images/other/me.jpg";
+import { ReactComponent as ReactLogo } from "../../app/static/images/svg/react.svg";
+import Me from "../../app/static/images/other/me.jpg";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
