@@ -32,8 +32,6 @@ const useStyles = makeStyles((theme) => ({
 
 const CertificateCard = ({ title, imageURL, link }) => {
   const classes = useStyles();
-  console.log(imageURL);
-  console.log(title);
 
   return (
     <Tooltip placement="top" title="Click to see full info">
