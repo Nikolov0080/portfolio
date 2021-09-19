@@ -11,7 +11,10 @@ import {
   name,
 } from "./formSlice";
 import { useSelector } from "react-redux";
-// import {} from 'date-fns'
+import addMessage from "../../services";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const useStyles = makeStyles((theme) => ({
   box: {
     margin: "auto",
@@ -30,15 +33,19 @@ const useStyles = makeStyles((theme) => ({
 
 const SendEmail = () => {
   const classes = useStyles();
-
   const currentEmail = useSelector(email);
   const currentName = useSelector(name);
   const currentMessage = useSelector(message);
 
+  const notification = (message, type) => toast[type](message);
+
   const dispatch = useDispatch();
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // structure the message for sending date,time etc.
+    const a = await addMessage(currentEmail, currentName, currentMessage);
+    a === "error"
+      ? notification("Something went wrong :/", "error")
+      : notification("Message send!", "success");
   };
 
   const handleChange =
@@ -62,8 +69,10 @@ const SendEmail = () => {
 
   return (
     <Paper className={classes.box}>
+      <ToastContainer theme="colored" hideProgressBar={true} autoClose={3000} />
       <form onSubmit={handleSubmit}>
         <TextField
+          required
           className={classes.input}
           variant="outlined"
           size="small"
@@ -75,6 +84,7 @@ const SendEmail = () => {
         />
 
         <TextField
+          required
           className={classes.input}
           variant="outlined"
           size="small"
@@ -86,6 +96,7 @@ const SendEmail = () => {
         />
 
         <TextField
+          required
           className={classes.input}
           variant="outlined"
           size="small"
