@@ -8,8 +8,6 @@ import { ReactComponent as NodeIcon } from './images/svg/node.svg'
 import { ReactComponent as ReduxIcon } from './images/svg/redux.svg'
 import { ReactComponent as BootstrapIcon } from './images/svg/react.svg'
 
-
-
 export const ROUTES = {
     ABOUT: "/",
     CONTACTS: "/contacts"
@@ -44,3 +42,5 @@ export const CERTIFICATES = [
         link: "https://softuni.bg/certificates/details/107005/1e11171f"
     },
 ]
+
+export const EMAIL_API = "https://api.emailjs.com/api/v1.0/email/send";

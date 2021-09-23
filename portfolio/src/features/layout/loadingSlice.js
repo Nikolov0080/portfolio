@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const LOADING = "loading";
 
 const initialState = {
-    loading: true
+    loading: false
 }
 // will be needed for data fetching
 const loadingSlice = createSlice({
@@ -16,7 +16,7 @@ const loadingSlice = createSlice({
     }
 });
 
-export const loading = (state) => state[LOADING].loading;
+export const selectLoading = (state) => state[LOADING].loading;
 
 export const { setLoading } = loadingSlice.actions;
 

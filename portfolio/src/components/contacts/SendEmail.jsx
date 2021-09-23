@@ -1,5 +1,5 @@
-import { Button, Paper, TextField } from "@material-ui/core";
 import React from "react";
+import { Button, CircularProgress, Paper, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { useDispatch } from "react-redux";
 import {
@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import addMessage from "../../services";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { selectLoading, setLoading } from "../../features/layout/loadingSlice";
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -29,6 +30,14 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "flex-end",
   },
+  btn: {
+    width: 100,
+    height: 40,
+  },
+  progressBox: {
+    width: 50,
+    marginRight: 20,
+  },
 }));
 
 const SendEmail = () => {
@@ -36,16 +45,26 @@ const SendEmail = () => {
   const currentEmail = useSelector(email);
   const currentName = useSelector(name);
   const currentMessage = useSelector(message);
-
-  const notification = (message, type) => toast[type](message);
+  const loading = useSelector(selectLoading);
 
   const dispatch = useDispatch();
+
+  const notification = (message, type) => toast[type](message);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const a = await addMessage(currentEmail, currentName, currentMessage);
-    a === "error"
+    dispatch(setLoading(true));
+
+    const { status } = await addMessage(
+      currentEmail,
+      currentName,
+      currentMessage
+    );
+
+    status === 400
       ? notification("Something went wrong :/", "error")
-      : notification("Message send!", "success");
+      : notification("Email send!", "success");
+
+    dispatch(setLoading(false));
   };
 
   const handleChange =
@@ -109,9 +128,24 @@ const SendEmail = () => {
           value={currentMessage}
         />
         <div className={classes.btnBox}>
-          <Button variant="contained" color="primary" type="submit">
-            Submit
-          </Button>
+          {loading === true ? (
+            <>
+              <div className={classes.progressBox}>
+                <CircularProgress />
+              </div>
+            </>
+          ) : (
+            <>
+              <Button
+                className={classes.btn}
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
+                Submit
+              </Button>
+            </>
+          )}
         </div>
       </form>
     </Paper>
