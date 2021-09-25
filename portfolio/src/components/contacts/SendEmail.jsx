@@ -1,5 +1,11 @@
 import React from "react";
-import { Button, CircularProgress, Paper, TextField } from "@material-ui/core";
+import {
+  Button,
+  CircularProgress,
+  Paper,
+  TextField,
+  Typography,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { useDispatch } from "react-redux";
 import {
@@ -88,6 +94,8 @@ const SendEmail = () => {
 
   return (
     <Paper className={classes.box}>
+      <Typography align="center">You can just send me a Message </Typography>
+
       <ToastContainer theme="colored" hideProgressBar={true} autoClose={3000} />
       <form onSubmit={handleSubmit}>
         <TextField

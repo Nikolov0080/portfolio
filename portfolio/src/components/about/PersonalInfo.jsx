@@ -46,6 +46,7 @@ const PersonalInfo = () => {
           Front End / React Developer
           <ReactLogo height={30} width={30} />
         </Typography>
+        <Typography>Looking for new opportunities</Typography>
       </Grid>
     </Grid>
   );

@@ -6,10 +6,6 @@ const Contacts = () => {
   return (
     <div>
       <Grid container justifyContent="space-evenly">
-        <Grid style={{ marginBottom: 40 }} sm={12} md={5} lg={5} xl={4} item>
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa ipsa, aspernatur cum quam
-          beatae debitis nemo velit esse dolore corporis voluptatem!
-        </Grid>
         <Grid sm={12} md={6} lg={6} xl={5} item>
           <SendEmail />
         </Grid>
